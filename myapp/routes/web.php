@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/','welcome');
+
+
 Route::get('payments/create','paymentsController@create')->middleware('auth');
 Route::post('payments','paymentsController@store')->middleware('auth');
+Route::get('notifications','UserNotificationsController@show')->middleware('auth');
 
 Auth::routes();
+

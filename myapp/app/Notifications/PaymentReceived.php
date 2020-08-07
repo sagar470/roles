@@ -10,15 +10,16 @@ use Illuminate\Notifications\Notification;
 class PaymentReceived extends Notification
 {
     use Queueable;
+    protected $amount;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($amount)
     {
-        //
+        $this->amount=$amount;
     }
 
     /**
@@ -29,7 +30,7 @@ class PaymentReceived extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail','database','nexmo'];
     }
 
     /**
@@ -41,9 +42,18 @@ class PaymentReceived extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->subject('your larcasts payment was received')
+            ->greeting("what'sup")
                     ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->action('sign up',url('/'))
                     ->line('Thank you for using our application!');
+    }
+
+
+    public function toNexmo($notifiable)
+    {
+        return(new Nexmomessage())
+            -> content('your laracsats payment has been proccesed');
     }
 
     /**
@@ -55,7 +65,7 @@ class PaymentReceived extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'amount'=>$this->amount
         ];
     }
 }

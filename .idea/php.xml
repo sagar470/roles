@@ -103,6 +103,19 @@
       <path value="$PROJECT_DIR$/myapp/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/myapp/vendor/sebastian/type" />
       <path value="$PROJECT_DIR$/myapp/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/myapp/vendor/php-http/guzzle6-adapter" />
+      <path value="$PROJECT_DIR$/myapp/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/myapp/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/myapp/vendor/nexmo/client" />
+      <path value="$PROJECT_DIR$/myapp/vendor/nexmo/client-core" />
+      <path value="$PROJECT_DIR$/myapp/vendor/ocramius/package-versions" />
+      <path value="$PROJECT_DIR$/myapp/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/myapp/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/myapp/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/myapp/vendor/laminas/laminas-diactoros" />
+      <path value="$PROJECT_DIR$/myapp/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/myapp/vendor/nexmo/laravel" />
+      <path value="$PROJECT_DIR$/myapp/vendor/laravel/nexmo-notification-channel" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
