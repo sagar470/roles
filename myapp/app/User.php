@@ -37,15 +37,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function conversation()
+    public function roles()
     {
-        return $this->hasMany(Conversation::class);
+        return $this->belongsToMany(Role::class)-> withTimestamps();
     }
-    public function replies()
+    public function assignRole($role)
     {
-        return $this->hasMany(Reply::class);
+        if(is_string($role)) {
+            $role = Role::wherename($role)->firstorfail();
+        }
+
+
+         $this->roles()->sync($role,false);
     }
 
+    public function abilities()
+    {
+        return $this->roles->map->abilities->flatten()->pluck('name')->unique();
+    }
 }
 
 

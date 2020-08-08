@@ -14,14 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/','welcome');
+auth()->loginUsingId(5);
 
 
 
-Route::get('conversations','ConversationsController@index');
 
-Route::get('conversations/{conversation}','ConversationsController@show')->middleware('can:view,conversation');
-Route::post('best-replies/{reply}','ConversationBestReplyController@store');
+Route::get('/',function (){
+    return view('welcome');
+});
+Route::get('/reports',function (){
+    return 'the secrets reports';
+})->middleware('can:view_reports');
 
-Auth::routes();
+
+
 
